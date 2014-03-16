@@ -1,8 +1,4 @@
-Cms::Application.routes.draw do
-  Mercury::Engine.routes
-
+Rails.application.routes.draw do
   root to: 'pages#index'
-  resources :pages do
-    member { post :mercury_update }
-  end
+  resources :pages, only: [:index, :show]
 end
