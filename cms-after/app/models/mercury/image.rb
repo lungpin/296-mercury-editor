@@ -1,4 +1,5 @@
 class Mercury::Image < ActiveRecord::Base
+  do_not_validate_attachment_file_type :image
 
   self.table_name = :mercury_images
   
