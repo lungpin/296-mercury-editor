@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     end
   mount Mercury::Engine => '/'
   root to: 'pages#index'
-  resources :pages, only: [:index, :show]
+  resources :pages, only: [:index, :show, :update]
 end
