@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def update
+    authenticate_user!
     page = Page.find(params[:id])
     page.name = params[:content][:page_name][:value]
     page.content = params[:content][:page_content][:value]

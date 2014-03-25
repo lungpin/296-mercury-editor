@@ -5,14 +5,15 @@ class ApplicationController < ActionController::Base
   include Mercury::Authentication
 
   helper_method :is_editing?
-  layout :layout_with_mercury
+  helper_method :can_edit?
+  #layout :layout_with_mercury
 
   private
   def is_editing?
     cookies[:editing] == 'true' && can_edit?
   end
 
-  def layout_with_mercury
+  def layout_with_mercury__
     # if we're not already within mercury, and the user is able, load the mercury template.
     # otherwise use the default application template.
     !params[:mercury_frame] && is_editing? ? 'mercury' : 'application'

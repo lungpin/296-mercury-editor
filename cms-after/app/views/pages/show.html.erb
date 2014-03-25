@@ -12,5 +12,9 @@
     <%= raw @page.content %>
   </div>
 
-<%= link_to_function "Toggle Mercury Editor", "document.cookie='editing=#{is_editing? ? 'false' : 'true'}';top.location.href=top.location.href" %>
+  <% if can_edit? %>
+  <p><%= link_to "Edit Page", "/editor" + request.path, id: "edit_link" %></p>
+<p>
+<%= link_to_function "Toggle Mercury Editor", "document.cookie='editing=#{is_editing? ? 'false' : 'true'}';top.location.href=top.location.href" %></p>
+  <% end %>
 </div>
